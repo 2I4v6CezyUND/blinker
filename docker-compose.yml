@@ -13,5 +13,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USER=postgres
 volumes:
   dbdata:
