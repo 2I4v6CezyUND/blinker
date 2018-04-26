@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_26_012635) do
+ActiveRecord::Schema.define(version: 2018_04_26_020144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2018_04_26_012635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "model_variants", force: :cascade do |t|
+    t.bigint "model_id"
+    t.string "name"
+    t.date "year"
+    t.integer "starting_price_cents"
+    t.jsonb "features"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["model_id"], name: "index_model_variants_on_model_id"
+  end
+
   create_table "models", force: :cascade do |t|
     t.bigint "make_id"
     t.string "name"
@@ -29,5 +40,6 @@ ActiveRecord::Schema.define(version: 2018_04_26_012635) do
     t.index ["make_id"], name: "index_models_on_make_id"
   end
 
+  add_foreign_key "model_variants", "models"
   add_foreign_key "models", "makes"
 end
