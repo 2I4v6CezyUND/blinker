@@ -1,15 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "Makes", type: :request do
+RSpec.describe "Models", type: :request do
   let(:ford) { FactoryBot.create(:make, name: "Ford")}
   let!(:f150) { FactoryBot.create(:model, name: "F150", make: ford)}
 
-  describe "GET /makes" do
-    xit "should return a list of makes" do
-      get makes_path
+  describe "GET /models" do
+    it "should return a list of models" do
+      get models_path
       json = JSON.parse(response.body)
       expect(response).to have_http_status(200)
-      expect(json).to include(ford_json)
     end
   end
 
