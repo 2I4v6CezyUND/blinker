@@ -1,19 +1,19 @@
 class MakesController < ApplicationController
   before_action :set_make, only: [:show, :update, :destroy]
 
-  # GET /makes
+  api!
   def index
     @makes = Make.all
 
     render json: @makes
   end
 
-  # GET /makes/1
+  api!
   def show
     render json: @make
   end
 
-  # POST /makes
+  api!
   def create
     @make = Make.new(make_params)
 
@@ -24,7 +24,7 @@ class MakesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /makes/1
+  api!
   def update
     if @make.update(make_params)
       render json: @make
@@ -33,7 +33,7 @@ class MakesController < ApplicationController
     end
   end
 
-  # DELETE /makes/1
+  api!
   def destroy
     @make.destroy
   end

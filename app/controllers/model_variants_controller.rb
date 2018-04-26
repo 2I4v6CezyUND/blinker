@@ -1,19 +1,18 @@
 class ModelVariantsController < ApplicationController
   before_action :set_model_variant, only: [:show, :update, :destroy]
 
-  # GET /model_variants
+  api :GET, "model_variants", "List: variants"
   def index
     @model_variants = ModelVariant.all
 
     render json: @model_variants
   end
 
-  # GET /model_variants/1
+  api :GET, "model_variants/:id", "variant"
   def show
     render json: @model_variant
   end
 
-  # POST /model_variants
   def create
     @model_variant = ModelVariant.new(model_variant_params)
 
@@ -24,7 +23,6 @@ class ModelVariantsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /model_variants/1
   def update
     if @model_variant.update(model_variant_params)
       render json: @model_variant
@@ -33,7 +31,6 @@ class ModelVariantsController < ApplicationController
     end
   end
 
-  # DELETE /model_variants/1
   def destroy
     @model_variant.destroy
   end

@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 ford = Make.create(name: "Ford")
+f150 = Model.create(name: "F150", make: ford)
+f150XL = ModelVariant.create(name: "XL", model: f150)
+vehicle = Vehicle.create(description: "Its superb!", model_variant: f150XL)

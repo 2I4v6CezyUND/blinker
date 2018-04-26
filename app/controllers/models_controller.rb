@@ -1,19 +1,19 @@
 class ModelsController < ApplicationController
   before_action :set_model, only: [:show, :update, :destroy]
 
-  # GET /models
+  api!
   def index
     @models = Model.all
 
     render json: @models
   end
 
-  # GET /models/1
+  api!
   def show
     render json: @model
   end
 
-  # POST /models
+  api!
   def create
     @model = Model.new(model_params)
 
@@ -24,7 +24,7 @@ class ModelsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /models/1
+  api!
   def update
     if @model.update(model_params)
       render json: @model
@@ -33,7 +33,7 @@ class ModelsController < ApplicationController
     end
   end
 
-  # DELETE /models/1
+  api!
   def destroy
     @model.destroy
   end

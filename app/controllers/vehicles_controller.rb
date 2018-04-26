@@ -1,19 +1,19 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :update, :destroy]
 
-  # GET /vehicles
+  api!
   def index
     @vehicles = Vehicle.all
 
     render json: @vehicles
   end
 
-  # GET /vehicles/1
+  api!
   def show
     render json: @vehicle
   end
 
-  # POST /vehicles
+  api!
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
@@ -24,7 +24,7 @@ class VehiclesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /vehicles/1
+  api!
   def update
     if @vehicle.update(vehicle_params)
       render json: @vehicle
@@ -33,7 +33,7 @@ class VehiclesController < ApplicationController
     end
   end
 
-  # DELETE /vehicles/1
+  api!
   def destroy
     @vehicle.destroy
   end
